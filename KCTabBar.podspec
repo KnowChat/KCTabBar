@@ -103,11 +103,11 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'KCMidBtnTabBar' do |kcmidbtntabbar|
-    kcmidbtntabbar.source_files = 'KCTransition/KCCircleTransition/*'
+    kcmidbtntabbar.source_files = 'KCTabBar/KCMidBtnTabBar/*'
   end
 
   s.subspec 'KCNormalTabBar' do |kcnormaltabbar|
-    kcnormaltabbar.source_files = 'KCTransition/KCCircleTransition/*'
+    kcnormaltabbar.source_files = 'KCTabBar/KCNormalTabBar/*'
   end
 
 
