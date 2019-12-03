@@ -67,7 +67,7 @@
     CGSize sizeImage = self.midBtnNormalImg.size;
     NSString *titleStr = [self.centerBtn titleForState:UIControlStateNormal];
     CGSize sizeTitle = [titleStr sizeWithAttributes:@{NSFontAttributeName:self.centerBtn.titleLabel.font}];
-    midBtnWidth = midBtnWidth > sizeImage.width ? midBtnWidth : sizeImage.width;
+    midBtnWidth = MAX(midBtnWidth, sizeImage.width);
     if (titleStr.length > 0) {
         self.centerBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         self.centerBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
@@ -80,9 +80,10 @@
         [self.centerBtn setImageEdgeInsets:UIEdgeInsetsMake(0, (midBtnWidth - sizeImage.width) / 2.0, 0, 0)];
         [self.centerBtn setTitleEdgeInsets:UIEdgeInsetsMake(midBtnHeight - sizeTitle.height, (midBtnWidth - sizeTitle.width) / 2.0 - sizeImage.width, 0, 0)];
     }else {
-        midBtnHeight = midBtnHeight > sizeImage.height ? midBtnHeight : sizeImage.height;
+        midBtnHeight = MAX(midBtnHeight, sizeImage.height);
+        CGFloat midBtnCenterY = CGRectGetMidY(((UIView *)tabBarButtonArray[0]).frame);
         self.centerBtn.bounds = CGRectMake(0, 0, midBtnWidth, midBtnHeight);
-        self.centerBtn.center = CGPointMake(barWidth / 2, 0);
+        self.centerBtn.center = CGPointMake(barWidth / 2, midBtnCenterY);
     }
 
     // 重新布局其他 tabBarItem
