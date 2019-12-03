@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "KCTabBar"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A set of KCTabBar."
 
   # This description is used to generate tags and improve search results.
